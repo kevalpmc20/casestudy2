@@ -19,7 +19,7 @@ T_bottom = 95;
 % Initialize the temperature matrix
 T = zeros(ny,nx);
 
-%% Set the boundary conditions in the temperature matrix
+% Set the boundary conditions in the temperature matrix
 T(:,1) = T_left;
 T(:,end) = T_right;
 T(1,:) = T_top;
@@ -43,7 +43,7 @@ while error > tol
     error = max(max(abs(T - T_old)));
 end
 
-%% Generate the x and y coordinates for the contour plot
+% Generate the x and y coordinates for the contour plot
 x = linspace(0,Lx,nx);
 y = linspace(0,Ly,ny);
 [X,Y] = meshgrid(x,y);
@@ -56,7 +56,7 @@ ylabel('Height (m)');
 title('Temperature Distribution in Car Radiator');
  
 
-%% To Find the temperature at the specified point using interpolation
+% To Find the temperature at the specified point using interpolation
 x = linspace(0,Lx,nx);
 y = linspace(0,Ly,ny);
 [X,Y] = meshgrid(x,y);
@@ -64,8 +64,3 @@ T_interp = interp2(X,Y,T,x_coord,y_coord);
 
 % Display the temperature at the specified point
 disp(['Temperature at (', num2str(x_coord), ',', num2str(y_coord), '): ', num2str(T_interp), '°C']);
-
-Output =
-Enter the x coordinate: 1.75
-Enter the y coordinate: 0.75
-Temperature at (1.75,0.75): 78.1433°C
